@@ -59,7 +59,6 @@ signed main()
 {
 	fast();
 
-
 	int n;
 	cin >> n;
 	vi nums(n);
@@ -74,17 +73,19 @@ signed main()
 	vector<p2> backedges;
 	int ans = 0;
 
+	FT top(0);
 	rep(k, 4)
 	{
 		rep(i, n) dp[0][i] = state({ 0, p2(i, 0) });
 		rep(i, n) dp[1][i] = state({ 0, p2(i, 1) });
 
+
 		bool any = 1;
 		while (any)
 		{
-			FT top(n);
 			any = 0;
-			assert(1);
+
+			top = FT(n);
 			rep(i, n)
 			{
 				state best = top.query(nums[i]);
@@ -99,14 +100,14 @@ signed main()
 				if (disabled[i] && dp[1][i].cost - 1 > dp[0][i].cost) dp[0][i] = state({ dp[1][i].cost - 1, p2(i, 1) });
 
 				top.update(nums[i], state({ dp[1][i].cost, p2(i,1) }));
-
 			}
+
 			repe(b, backedges)
 			{
 				if (dp[1][b.second].cost < dp[0][b.first].cost)
 				{
 					dp[1][b.second] = state({ dp[0][b.first].cost, p2(b.first,0) });
-					top.update(nums[b.second], state({ dp[0][b.first].cost, p2(b.second, 1) }));
+					if (dp[1][b.second].cost - 1 > dp[0][b.second].cost) dp[0][b.second] = state({ dp[1][b.second].cost - 1, p2(b.second, 1) });
 					any = 1;
 				}
 			}
@@ -132,7 +133,6 @@ signed main()
 			p2 to = pos;
 			if (from.first == to.first)
 			{
-				assert(from.second != to.second);
 				if (from.second == 0)
 				{
 					disabled[from.first] = 1;
@@ -155,7 +155,6 @@ signed main()
 			pos = from;
 		}
 	}
-
 	cout << ans << "\n";
 
 

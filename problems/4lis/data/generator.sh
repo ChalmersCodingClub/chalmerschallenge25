@@ -2,7 +2,7 @@
 . ../../../testdata_tools/gen.sh
 
 ulimit -s unlimited
-use_solution joshua_fenwick.cpp
+use_solution joshua.cpp
 
 compile gen_rand.py
 compile gen_almostsorted.py
@@ -44,7 +44,7 @@ include_group group3
 tc g4-1 gen_rand n=3000
 tc g4-2 gen_rand n=3000
 
-group group5 45
+group group5 25
 limits maxn=20000
 include_group group4
 tc g5-1 gen_rand n=20000
@@ -57,3 +57,17 @@ tc g5-7 gen_rand n=20000
 tc g5-8 gen_rand n=20000
 tc g5-9 gen_rand n=20000
 tc g5-10 gen_rand n=20000
+
+group group6 20
+limits maxn=100000
+include_group group5
+tc g6-1 gen_rand n=100000
+tc g6-2 gen_rand n=100000
+tc g6-3 gen_rand n=100000
+tc g6-4 gen_rand n=100000
+tc g6-5 gen_rand n=100000
+tc g6-6 gen_rand n=100000
+tc g6-7 gen_rand n=100000
+tc g6-8 gen_rand n=100000
+tc g6-9 gen_rand n=100000
+tc g6-10 gen_rand n=100000
