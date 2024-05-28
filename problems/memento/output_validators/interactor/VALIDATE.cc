@@ -34,7 +34,6 @@ vector<pii> generate_graph()
             int b = node_dist(rng);
             if (a==b) continue;
             if (seen.find(pii(a,b))!=seen.end()) continue;
-            if (seen.find(pii(a,b))!=seen.end()) continue;
             seen.insert(pii(a,b));
             seen.insert(pii(b,a));
             ret.emplace_back(a,b);
