@@ -1,0 +1,55 @@
+\problemname{Memento}
+\noindent
+Unfortunately, loke has a very bad memory. Sometimes, he may even completely forget that he's seen a given graph. 
+To avoid this public embarassment, he's going to need a system. Every time he sees a graph, he can add at most $30$
+edges to it. However, the next time he sees it, he needs to be able to identify that he's seen it before based on the
+change. To make matters even worse, the graph is very large- it has $1000$ vertices and between $2500$ and $3500$ edges.
+To make things easier for him, he has asked for your help in writing a computer program to help him.
+
+More specifically, you're asked to implement a computer program that does the following:
+\begin{enumerate}
+  \item Reads an undirected graph from standard input.
+  \item Determines whether the program has seen the graph before.
+  \item If he hasn't seen it before, the program should print ``not seen before'', then print the $30$ edges to be added and exit.
+  \item If he has it before, the program should print ``seen before'' and exit.
+\end{enumerate}
+To explain the process more exactly, the judge will:
+\begin{enumerate}
+  \item The judge will generate a graph (exactly how is described below).
+  \item The judge will start your program and give it the graph. If it incorrectly claims that it's seen the graph before,
+  you will receive a ``Wrong Answer'' verdict. Otherwise, the judge will then add the $30$ edges to the graph.
+  \item The judge will then shuffle the vertex labels (i.e. node $1$ might be changed to $5$, but the new
+  graph will be isomorphic to the one before the shuffle). The order in which edges are given, in addition the
+  order between the vertices of the edge will also be shuffled (i.e. $4 2$ may be changed to $2 4$).
+  \item The judge will then start your program and give it the shuffled graph. If it correctly identifies that
+  it's seen the graph before, you have solved this testcase. Otherwise, you will receive a ``Wrong Answer'' verdict.
+\end{enumerate}
+
+The method for generating the initial graph is as follows:
+\begin{verbatim}
+G = empty graph with 1000 nodes
+choose M = random number between 2500 and 3500
+for i between 1...M:
+  add a random edge to G that doesn't already exist and connects two distinct vertices
+\end{verbatim}
+A python implementation of this process may be found in attachments. Note that the real judge uses a different pseudo-random
+number generator, but it is guaranteed that it is of comparable quality to Python's random number generator.
+
+
+\section*{Input}
+The first line of input contains the integer $M$ ($2500 \leq M \leq 3550$), the number of edges in the graph. Note that
+the number of nodes is always $1000$.
+
+The following $M$ lines each contain the integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$), meaning that there is an edge
+between the nodes with index $a$ and $b$. Additionally, there will be at most one edge between any pair of vertices.
+
+\section*{Output}
+If you think you've seen the graph before, print only ``seen before''.
+
+Otherwise, print ``not seen before''. On the following $30$ lines, print $a b$, meaning that you want to add
+an edge between node $a$ and $b$. Note that $0 \leq a,b \leq 999$ and $a \neq b$ must hold. In addition, after
+all edges have been added, there must not exist a pair of nodes with more than one edge between them.
+
+\section*{Scoring}
+Your solution will be tested on 25 testcases. If you pass all of them, your solution will be accepted.
+The jury guarantees that there exists a solutions that pass all testcases with very high probability.
