@@ -22,7 +22,7 @@ mt19937 rng;
 vector<pii> generate_graph()
 {
     vector<pii> ret;
-    uniform_int_distribution<int> m_dist(2500, 3500);
+    uniform_int_distribution<int> m_dist(3500, 4500);
     int m = m_dist(rng);
 
     set<pii> seen;
