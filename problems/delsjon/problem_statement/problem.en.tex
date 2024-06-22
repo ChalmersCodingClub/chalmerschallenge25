@@ -1,14 +1,14 @@
 \problemname{Exploring Delsjön}
 \noindent
 
-Olle likes to talk walks in the woods. One of his favorite areas is the Delsjö-area, as his house is located
-just outside of the Delsjö woods. He also has $K-1$ friends that live outside the forest. Whenever he goes to
-visit one of them, he will walk through the woods. He has done this enough times that he will always take
-the shortest path between any pair of the $K$ houses by pure muscle memory. Out of curiosity, he wants to map
-out Delsjön.
+Olle likes to take walks in the woods. One of his favorite areas is the Delsjö-area, as his house is located
+just outside of the Delsjö woods. He also has $K-1$ friends that live just outside the forest. Whenever he goes to
+visit one of them, he will walk through the woods. Olle is a social butterfly, so he visited them enough times
+that he will always take the shortest path between any pair of the $K$ houses by pure muscle memory. In fact, he
+even remembers the length of the shortest path between any all pairs of the $K$ houses! Out of curiosity, he wants
+to use these distances to map out Delsjön.
 
-Olle is a social butterfly, so he has been to his friends enough times to know the distance of the shortest
-path between any pairs of houses. The forest can be modelled as having $N$ glades, with a total of exactly
+The forest can be modelled as having $N$ glades, with a total of exactly
 $N-K-1$ trails connecting glades and/or houses, in such a way that one can walk from any house to any other
 house or glade using one or more trails. Each house has a trail to exactly one glade and no other houses.
 It takes exacly $1$ minute to go from one end of a trail to the other end.
@@ -16,22 +16,23 @@ To make mapping out delsjön a bit easier, he wants to create a
 first guess of how many glades there could be, and how the trails connect glades with other glades and houses.
 
 Because he has a party to attend, he has now asked you to help him. To be more precise, your task is to choose some
-$N$ ($N+K \leq 2000$), then connect $N-K-1$ spots ($K$ of them being houses, $N$ being glades) such that you reach any spot from any other spot
+$N$ ($N+K \leq 2000$), then connect $N-K-1$ spots ($K$ of them being houses, $N$ being glades) such that you reach any
+spot from any other spot
 and each house is connected to no other house and exactly one glade. In addition, the spots $1,2, \dots, K$ should represent
-the houses in the same order the input, and the distances between them should be the same as the distances that Olle
+the houses in the same order as the input, and the distances between them should be the same as the distances that Olle
 has given. 
 
 \section*{Input}
 The first line of input contains the integer $K$ ($3 \leq K \leq 1000$), representing the number of houses.
 
 Then follow $K$ lines, the $i$:th describing the distances between house $i$ and the others. Each line $i$ will contain
-$K$ integers, $d_{i,1}, d_{i,2}, \dots, d_{i,K}$ ($1 \leq d_{i,j} \leq 1000$), each $d_{i,j}$ meaning that the distance 
-between house $i$ and $j$ is $d_{i,j}$.
+$K$ integers, $d_{i,1}, d_{i,2}, \dots, d_{i,K}$ ($1 \leq d_{i,j} \leq 1000$), each $d_{i,j}$ meaning that it takes $d_{i,j}$ 
+seconds to get from house $i$ to $j$. Note that these distances are symmetric: $d_{i,j}=d_{j,i}$ for all $i,j$.
 
-It is guaranteed that the input is created such that there is always a solution where $N+K \leq 1000$.
+It is guaranteed that the input is created such that there always exists a solution where $N+K \leq 1000$.
 
 \section*{Output}
-First, print an integer $T$, the number of trails in your solution. ($T$ is equal to $N+K$).
+First, print an integer $T$ ($K \leq T \leq 2000$), the number of trails in your solution. ($T$ is equal to $N+K$).
 
 Then, print $T-1$ lines, each containing two integers $a,b$ ($1 \leq a,b \leq T$), meaning that there
 is a trail between spot $a$ and $b$. Spot $1$ should represent the first house, spot $2$ the second house and so on.
