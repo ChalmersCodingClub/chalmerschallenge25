@@ -18,7 +18,7 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 n = int(cmdlinearg('n'))
 max_h = int(cmdlinearg('max_h'))
-h = rand(0, max_h)
+h = rand(max_h // 2, max_h)
 min_x = int(cmdlinearg('min_x'))
 max_x = int(cmdlinearg('max_x'))
 
@@ -28,4 +28,7 @@ random.shuffle(coords)
 print(n)
 print(h)
 for i in range(n):
-    print(f"{coords[i][0]} {coords[i][1]}")
+    x = coords[i][0]
+    y = coords[i][1]
+    assert(x != 0)
+    print(f"{x} {y}")

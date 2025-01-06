@@ -4,17 +4,22 @@
 
 using namespace std;
 
-
 void run() {
-	int n = Int(2,Arg("maxn"));
+	int MAXN = Arg("maxn");
+	int MAXH = Arg("maxh");
+	int MINX = Arg("minx");
+	int MAXX = Arg("maxx");
+
+	int n = Int(1, MAXN);
 	Endl();
-	int h = Int(0,Arg("maxh"));
+	
+	int h = Int(0, MAXH);
 	Endl();
 	for (int i = 0; i < n; i++)
 	{
-		int x = Int(Arg("minx"),Arg("maxx"));
+		int x = Int(MINX, MAXX);
 		Space();
-		int y = Int(0, Arg("maxh"));
+		int y = Int(0, MAXH);
 		Endl();
 	}
 
