@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+PPATH=$(realpath ..)
+. ../../../testdata_tools/gen.sh
+
+ulimit -s unlimited
+
+use_solution hugo.cpp
+
+compile gen_random.py
+
+group group01 100
+for i in {1..25}
+do
+tc g1-$i gen_random
+done

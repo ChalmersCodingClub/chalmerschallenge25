@@ -1,0 +1,17 @@
+\problemname{Tidsfördriv}
+Hugo blev just klar med tentaveckan och har riktigt tråkigt, eftersom de nya kurserna inte börjar förrens på måndag.
+För att fördriva tiden har Hugo börjat spela ett solitär-kortspel. Spelet går till såhär:
+
+I början har Hugo en vanlig blandad kortlek framför sig med 52 kort. I varje omgång gissar Hugo sedan vilken valör som det översta kortet har (3, 10, knäkt, etc.).
+Efter att han gissat vänder han på översta kortet, och om han gissade rätt får han ett poäng, varpå nästa omgång börjar med nästa kort överst.
+
+Hjälp Hugo komma på hur sannolikt det är att han gissar rätt efter $N$ rundor av spelet, givet att han spelar optimalt.
+
+\section*{Indata}
+Den första raden innehåller ett heltal $N$ ($0 \le N \le 51$): antalet omgångar som har spelats hittils.
+Sedan följer $N$ rader som beskriver vilket kort som har dykt upp i varje omgång, t.ex. 10D, 4C, KS.
+Korten beskrivs genom en valör (A, 2, 3, 4, 5, 6, 7, 8, 9, J, Q, K) följt av en färg (C, S, D, H).
+Det är garanterat att inget kort dyker upp två gånger.
+
+\section*{Utdata}
+Skriv ut sannolikheten att Hugo gissar rätt, som en procentsats mellan 0\% och 100\%, avrundat till närmsta procentenhet.
