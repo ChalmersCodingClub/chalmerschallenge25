@@ -1,5 +1,39 @@
 \problemname{Bergstoppar}
 \noindent
 
+Joel has spent a lot more time climbing mountains than programming the last 6 months, and he once again finds himself on top of another mountain.
+This time he has climbed a very special mountain range, where all the mountain tops are on a single line. 
+The mountain Joel has climbed is $h$ meters high, and he is at relative horizontal position 0 in the mountain range.
+Given the coordinates of $n$ other mountains in the range, you need to calculate how many of them Joel can actually see.
+You should assume that Joel is laying on the ground when looking for other mountains, hugging the mountain he has climbed (he does after all like the mountains very much).
+
+\section*{Input}
+The first line will contain $n$, the number of other mountains to consider. $(1 \leq n \leq 20000)$
+
+The second line will contain $h$, the height of the mountain Joel is at. $(0 \leq h \leq 8848)$
+
+The following $n$ lines will each contain the coordinates of another mountain top, in the format $x$ $y$, where $x$ is the horizontal relative position to Joel,
+and $y$ is the height of the mountain. $(-50\;000 \leq x \leq 50\;000)$, $(0 \leq y \leq 8848)$.
+
+All coordinates have integer values, Please note that $x$ may be negative!
+
+\section*{Output}
+The output should consist of a single integer, the number of other mountain tops Joel can see.
+
+\section*{Points}
+Your solution will be tested on several test case groups. To get the points for
+a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N = 2,\;x > 0$ \\ \hline
+  $2$    & $30$       & $N \leq 1000,\;x > 0$ \\ \hline
+  $3$    & $10$       & $N \leq 1000$ \\ \hline
+  $4$    & $50$       & No Additional Constraints \\ \hline
+\end{tabular}
+
+
 
 
