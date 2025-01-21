@@ -47,12 +47,12 @@ tc g3-3 gen_evil n=1000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
 tc g3-4 gen_eviler n=1000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
 
 group group4 50
-limits maxn=20000 maxh=$MAX_H minx=-$MAX_X maxx=$MAX_X
+limits maxn=50000 maxh=$MAX_H minx=-$MAX_X maxx=$MAX_X
 include_group group3
 tc 3
 tc 4
 tc g4-1 gen_rand n=10000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-2 gen_rand n=20000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-3 gen_evil n=20000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-4 gen_eviler n=20000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
+tc g4-2 gen_rand n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
+tc g4-3 gen_evil n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
+tc g4-4 gen_eviler n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
 
