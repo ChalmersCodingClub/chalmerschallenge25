@@ -4,9 +4,8 @@
 using namespace std;
 
 void run() {
-    int max_n = Arg("max_n");
-
-    int n = Int(0, max_n);
+    int max_n = 51;
+    int n = Int(1, max_n);
     Endl();
     set<string> seen;
     set<string> ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};

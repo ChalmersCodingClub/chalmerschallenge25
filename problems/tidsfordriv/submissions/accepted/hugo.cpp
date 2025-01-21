@@ -18,5 +18,5 @@ int main() {
     }
     int gg = 0;
     for (int i = 0; i < 13; i++) gg = max(cnt[opts[i]], gg);
-    cout << fixed << setprecision(0) << ((double)gg / (52-n)) * 100 << "%\n";
+    cout << fixed << setprecision(10) << ((double)gg / (52-n)) << "\n";
 }
