@@ -3,7 +3,6 @@
 import sys
 import random
 import itertools as it
-import math
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -15,8 +14,7 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-max_n = int(cmdlinearg('max_n'))
-n = random.randint(0, max_n)
+n = int(cmdlinearg('n'))
 
 ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 suits = ["C", "S", "D", "H"]
