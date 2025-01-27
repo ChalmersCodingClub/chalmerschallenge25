@@ -25,14 +25,16 @@ def gen_name():
         name = "Gustav"
     return name
 
-# largest distance from 0 to 2 * n + 1, m = n + 1
-def woven_pattern(n):
+# room size: (spacing + 1) * (n + 1) - 1
+def woven_pattern(n, spacing):
     m = n + 1
     print(n,m)
     for i in range(n):
-        print(gen_name(), 2 * i + 1)
+        print(gen_name(), (spacing + 1) * (i + 1) - 1)
     for i in range(m):
-        print(2 * i, 2 * i + random.randint(0, 1))
+        print((spacing + 1) * i, (spacing + 1) * (i + 1) - 1 - random.randint(0, 1))
 
 n = int(cmdlinearg('n'))
-woven_pattern(n)
+spacing = int(cmdlinearg('spacing'))
+assert(spacing >= 1)
+woven_pattern(n, spacing)

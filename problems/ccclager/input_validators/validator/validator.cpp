@@ -4,18 +4,29 @@
 using namespace std;
 
 void run() {
-    int max_n = 51;
-    int n = Int(1, max_n);
+    int room = Arg("room", (int)1e9);
+
+    int n = Int(1, Arg("maxn", 100000));
+    Space();
+    int m = Int(0, Arg("maxm", 100000));
     Endl();
-    set<string> seen;
-    set<string> ranks = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    set<char> suites = {'C', 'S', 'H', 'D'};
+
     for (int i = 0; i < n; i++) {
-        string s = Line();
-        assert(!seen.count(s) && "All cards in input should be unique!");
-        assert(ranks.count(s.substr(0, s.size() - 1)) && "Card has invalid rank!");
-        assert(suites.count(s[s.size()-1]) && "Card has invalid suite!");
-        seen.emplace(s);
+        string name = _token();
+        Space();
+        int pos = Int(0, room);
+        assert(3 <= name.size() && name.size() <= 10);
+        assert(isupper(name[0]));
+        for (int j = 1; j < name.size(); j++) assert(islower(name[j]));
+        Endl();
+    }
+
+    for (int i = 0; i < m; i++) {
+        int a, b;
+        a = Int(0, room);
+        Space();
+        b = Int(a, room);
+        Endl();
     }
 
     Eof();
