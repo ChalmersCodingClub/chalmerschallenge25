@@ -1,0 +1,40 @@
+\problemname{CCC läger}
+
+Det är dags för ett nytt läger i Härryda med Chalmers Coding Club och som tradition har alla bastat till klockan 3 på
+morgonen och har nu gått och lagt sig. Alla på lägret sover i ett stort avlångt rum (Storstugan) men det finns dessvärre
+också ett fönster längs långsidan riktad rakt mot där morgonsolen snart dyker upp. Mer specifikt har lägret $N$ stycken
+deltagare där den $i$:te deltagaren sover $d_i$ meter från dörren (på kortsidan) av rummet.
+
+Rasmus har vaknat tidigt och märker att det finns ett antal gardiner som täcker delar av fönstret på $M$ olika ställen,
+gardin bit $j$ täcker solen för alla som sover mellan $L_j$ och $R_j$ meter från dörren, så att de kan sova vidare. Alla
+som blir träffade av den starka morgonsolen kommer däremot direkt att vakna.
+
+För att hjälpa alla stackars deltagare som kommer att vakna tidigt tänker Rasmus sätta på kaffe. Han tänker att varje
+deltagare kommer att behöva en kopp kaffe för att vakna ordentligt, men han vet också att Joshua och Gustav
+var vakna ännu längre för att förbereda morgondagens föreläsningar, så de kommer att behöva två koppar kaffe. Hur
+många koppar kaffe måste Rasmus sätta på?
+
+
+\section*{Indata}
+Första raden består av två tal $N$ ($1 \le N \le 10000$) och $M$ ($0 \le M \le 10000$), antalet medlemmar och antalet bitar gardin. Detta följs
+av $N$ rader, den $i$:te raden innehåller namnet på den $i$:te deltagaren följt av $d_i$ ($0 \le d_i \le 10^9$), hur långt
+från dörren de sover. Varje namn består av 3 till 10 bokstäver av tecken mellan a-z, där alla bokstäver är små förutom första.
+Sedan följer $M$ rader, där den $j$:te raden innehåller två tal, $L_j$ och $R_j$ ($0 \le L_j \le R_j \le 10^9$),
+intervallet som den $j$:te gardinen täcker.
+
+\section*{Utdata}
+Skriv ut ett tal, antalet koppar kaffe som Rasmus måste sätta på för att tillfredställa de nyvakna deltagarna.
+
+\section*{Poäng}
+Lösningen testas på flera grupper av testfall. För att få godkänt på en grupp behöver din lösning
+klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Antal poäng} & \textbf{Begränsningar} \\ \hline
+  $1$    & $10$       & $N, M \le 100$, $d_i, L_j, R_j \le 1000$ \\ \hline
+  $2$    & $20$       & $M \le 100$, $d_i, L_j, R_j \le 100000$ \\ \hline
+  $3$    & $20$       & $d_i, L_j, R_j \le 100000$ \\ \hline
+  $4$    & $50$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
