@@ -26,7 +26,7 @@ int main() {
         int s, e;
         cin >> s >> e;
         assert(e < COVERED);
-        covered[s] = e;
+        covered[s] = max(e - s + 1, covered[s]);
     }
 
     int cnt = 0;
