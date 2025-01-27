@@ -6,9 +6,9 @@ using namespace std;
 void run() {
     int room = Arg("room", (int)1e9);
 
-    int n = Int(1, Arg("maxn", 100000));
+    int n = Int(1, Arg("maxn", 200000));
     Space();
-    int m = Int(0, Arg("maxm", 100000));
+    int m = Int(0, Arg("maxm", 200000));
     Endl();
 
     for (int i = 0; i < n; i++) {
