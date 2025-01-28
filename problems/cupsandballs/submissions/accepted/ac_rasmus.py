@@ -1,0 +1,13 @@
+ball = 2
+hugo_guess = int(input())
+for i in range(int(input())):
+    swap1, swap2 = map(int, input().split())
+    if ball == swap1:
+        ball = swap2
+    elif ball == swap2:
+        ball = swap1
+
+if ball == hugo_guess:
+    print("123".replace(str(ball), "")[0], "123".replace(str(ball), "")[1])
+else:
+    print(hugo_guess, ball)
