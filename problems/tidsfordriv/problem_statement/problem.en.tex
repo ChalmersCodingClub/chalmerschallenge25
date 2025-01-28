@@ -1,0 +1,29 @@
+\problemname{Passing Time}
+Hugo has just finished his exam week and is really bored, as the new courses don't start until Monday.
+To pass the time, Hugo has started playing a solitaire card game. The game works as follows:
+
+At the beginning, Hugo has a standard shuffled deck of 52 cards in front of him. In each round, Hugo guesses the rank of the top card (3, 10, jack, etc.).
+After he makes his guess, he flips over the top card, and if he guessed correctly, he scores a point, and the next round begins with the next card on top.
+
+Help Hugo figure out how likely it is that he guesses correctly after $N$ rounds of the game, given that he plays optimally.
+
+\section*{Input}
+The first line contains an integer $N$ ($0 \le N \le 51$): the number of rounds that have been played so far.
+Then follow $N$ lines describing which card has appeared in each round, e.g., 10D, 4C, KS.
+The cards are described by a rank (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K) followed by a suit (C, S, D, H).
+It is guaranteed that no card appears twice.
+
+\section*{Output}
+Print the probability that Hugo guesses correctly, as a number between 0 and 1 with an absolute or relative error of less than $10^{-3}$.
+
+\section*{Scoring}
+The solution will be tested on several groups of test cases. To pass a group, your solution must
+pass all test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$       & $N < 10$ \\ \hline
+  $2$    & $80$       & No additional constraints \\ \hline
+\end{tabular}
