@@ -13,10 +13,10 @@ typedef vector<int> vi;
 
 
 void run() {
-    int k = Int(3, 1000);
+    int k = Int(2, 1000);
     Endl();
 
-    int maxd = Arg("maxd");
+    int maxd = Arg("maxdist");
 
     rep(i,0,k)
     {

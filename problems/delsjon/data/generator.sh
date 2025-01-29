@@ -14,11 +14,12 @@ compile gen_starry.py
 compile gen_errichto.py
 
 samplegroup
+limits maxdist=10
 sample 1
 sample 2
 
 group group1 50
-limits maxd=100
+limits maxdist=100
 include_group sample
 tc g1-1 gen_rand n=100
 tc g1-2 gen_rand n=100
@@ -38,7 +39,7 @@ tc g1-15 gen_rand n=10
 tc g1-16 gen_rand n=20
 
 group group2 50
-limits maxd=1000
+limits maxdist=1000
 include_group group1
 tc g2-1 gen_rand n=1000
 tc g2-2 gen_rand n=1000
