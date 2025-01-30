@@ -3,22 +3,22 @@
 
 Joel has spent a lot more time climbing mountains than programming the last 6 months, and he once again finds himself on top of another mountain.
 This time he has climbed a very special mountain range, where all the mountain tops are on a single line. 
-The mountain Joel has climbed is $h$ meters high, and he is at relative horizontal position 0 in the mountain range.
+The mountain Joel has climbed is $h$ meters high, and he is at relative horizontal position $0$ in the mountain range.
 Given the coordinates of $n$ other mountains in the range, you need to calculate how many of them Joel can actually see.
 You should assume that Joel is laying on the ground when looking for other mountains, hugging the mountain he has climbed (he does after all like the mountains very much).
 
 \section*{Input}
-The first line will contain $n$, the number of other mountains to consider. $(1 \leq n \leq 10^{5})$
+The first line contains the integer $n$ $(1 \leq n \leq 10^{5})$, the number of other mountains to consider. 
 
-The second line will contain $h$, the height of the mountain Joel is at. $(0 \leq h \leq 8848)$
+The second contains the integer $h$, the height of the mountain Joel is at. $(0 \leq h \leq 8848)$
 
-The following $n$ lines will each contain the coordinates of another mountain top, in the format $x$ $y$, where $x$ is the horizontal relative position to Joel,
-and $y$ is the height of the mountain. $(-10^{5} \leq x \leq 10^{5})$, $(0 \leq y \leq 8848)$. (No two peaks have the same x value)
+The following $n$ each contain the integers $x$ and $y$ ($-10^{5} \leq x \leq 10^{5}$, $0 \leq y \leq 8848$), the coordinates of another mountain top.
+$x$ describes the horizontal relative position to Joel, and $y$ is the height of the mountain. It is also guaranteed that no two peaks have the same $x$ value.
 
-All coordinates have integer values, Please note that $x$ may be negative!
+Note that $x$ may be negative!
 
 \section*{Output}
-The output should consist of a single integer, the number of other mountain tops Joel can see.
+Print an integer: the number of other mountain tops Joel can see.
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
