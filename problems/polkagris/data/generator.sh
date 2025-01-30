@@ -57,24 +57,24 @@ tc g2-15 gen kind=7 maxn=10000 alph=3
 tc g2-16 gen kind=7 maxn=10000 alph=3
 
 group group3 42
-limits maxn=30000000
+limits maxn=10000000
 include_group group2
-tc g3-01 gen kind=2 maxn=30000000 alph=3
-tc g3-02 gen kind=3 maxn=30000000 alph=3
-tc g3-03 gen kind=4 maxn=30000000 alph=3
-tc g3-04 gen kind=4 maxn=30000000 alph=3
-tc g3-05 gen kind=4 maxn=30000000 alph=3
-tc g3-06 gen kind=4 maxn=30000000 alph=5
-tc g3-07 gen kind=4 maxn=30000000 alph=26
-tc g3-08 gen kind=5 maxn=30000000 alph=3
-tc g3-09 gen kind=5 maxn=30000000 alph=3
-tc g3-10 gen kind=5 maxn=30000000 alph=3
-tc g3-11 gen kind=5 maxn=30000000 alph=5
-tc g3-12 gen kind=5 maxn=30000000 alph=26
-tc g3-13 gen kind=6 maxn=30000000 alph=3
-tc g3-14 gen kind=6 maxn=30000000 alph=3
-tc g3-15 gen kind=6 maxn=30000000 alph=3
-tc g3-16 gen kind=6 maxn=30000000 alph=5
-tc g3-17 gen kind=6 maxn=30000000 alph=26
-tc g3-18 gen kind=7 maxn=30000000 alph=3
-tc g3-19 gen kind=7 maxn=30000000 alph=3
+tc g3-01 gen kind=2 maxn=10000000 alph=3
+tc g3-02 gen kind=3 maxn=10000000 alph=3
+tc g3-03 gen kind=4 maxn=10000000 alph=3
+tc g3-04 gen kind=4 maxn=10000000 alph=3
+tc g3-05 gen kind=4 maxn=10000000 alph=3
+tc g3-06 gen kind=4 maxn=10000000 alph=5
+tc g3-07 gen kind=4 maxn=10000000 alph=26
+tc g3-08 gen kind=5 maxn=10000000 alph=3
+tc g3-09 gen kind=5 maxn=10000000 alph=3
+tc g3-10 gen kind=5 maxn=10000000 alph=3
+tc g3-11 gen kind=5 maxn=10000000 alph=5
+tc g3-12 gen kind=5 maxn=10000000 alph=26
+tc g3-13 gen kind=6 maxn=10000000 alph=3
+tc g3-14 gen kind=6 maxn=10000000 alph=3
+tc g3-15 gen kind=6 maxn=10000000 alph=3
+tc g3-16 gen kind=6 maxn=10000000 alph=5
+tc g3-17 gen kind=6 maxn=10000000 alph=26
+tc g3-18 gen kind=7 maxn=10000000 alph=3
+tc g3-19 gen kind=7 maxn=10000000 alph=3
