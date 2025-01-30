@@ -1,15 +1,26 @@
-\problemname{Cups and balls}
+\problemname{Muggar och bollar}
 
-Rasmus har utmanat Hugo på en lek med tre koppar på en rad och en boll. Bollen börjar under koppen i mitten (Kopp 2) och Rasmus kommer sedan snabbt att byta plats på kopparna $N$ gånger.
-Hugo ska sedan gissa under vilken kopp bollen finns. Men efter att Hugo har gissat fel 10 gånger i rad har Rasmus börjat tycka synd om honom och vill nu hjälpa honom att vinna en runda.
-Hugo har en än gång valt en kopp att gissa på, och Rasmus behöver din hjälp med vilka 2 olika koppar som ska byta plats för att Hugo ska vinna.
+Rasmus har utmanat Hugo på en lek med tre koppar i rad och en boll. Bollen börjar under koppen i
+mitten (Kopp 2), och Rasmus kommer sedan snabbt att byta plats på kopparna $N$ gånger.
+Hugo ska sedan gissa under vilken kopp bollen finns. Efter att Hugo har gissat fel 10 gånger i rad
+har Rasmus börjat tycka synd om honom och vill nu hjälpa honom att vinna en runda.
+Hugo har ännu en gång valt en kopp att gissa på, och Rasmus behöver din hjälp att bestämma vilka
+2 olika koppar som ska byta plats för att Hugo ska vinna.
 
 \section*{Indata}
-Första raden innehåller talet $G$, vilken kopp Hugo har gissat på.
-sedan följer en rad med talet $N$ ($1 \le N \le 100$), antalet byten som Rasmus gjort mellan kopparna.
-Sedan följer $N$ rader med två tal $a_i$ och $b_i$ ($1 \le a_i < b_i \le 3$), vilka koppar som byter plats.
-Sen följer ett tal $g$ ($1 \le g \le 3$), vilken kopp som Hugo gissat på.
+Den första raden innehåller heltalet $G$, koppen Hugo har gissat på.
+
+Nästa rad innehåller heltalet $N$ ($1 \le N \le 100$), antalet byten som Rasmus gjort mellan kopparna.
+
+Därefter följer $N$ rader med två heltal $a_i$ och $b_i$ ($1 \le a_i < b_i \le 3$), kopparna som byter plats.
 
 \section*{Utdata}
-Skriv två tal, vilka två koppar som ska byta plats för att Hugo ska vinna.
+Skriv ut två heltal, kopparna som ska byta plats för att Hugo ska vinna.
 
+
+\section*{Förklaring av exempelfall}
+I exempelfall 1 befinner sig bollen under kopp 1 efter alla byten. Om Rasmus byter på kopp 1 och 2 vinner
+Hugo eftersom han gissade på kopp 2.
+
+I exempelfall 2 stämmer Hugos gissning. Därmed måste rasmus byta på kopp 1 och 3 så att hugos gissning
+är rätt efter bytet.

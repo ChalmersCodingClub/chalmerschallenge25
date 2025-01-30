@@ -9,9 +9,10 @@ compile generate.py
 
 samplegroup
 sample 1
+sample 2
 
 group group01 100
-tc 1
+include_group sample
 for i in {1..20}
 do
 tc g1-$i generate
