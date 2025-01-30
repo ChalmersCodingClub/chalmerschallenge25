@@ -1,26 +1,26 @@
 \problemname{Memento}
 \noindent
-Unfortunately, Loke has a very bad memory. Sometimes, he may even completely forget that he's seen a given graph. 
+Unfortunately, Loke's memory is very bad. Sometimes, he may even completely forget that he's seen a given graph. 
 To avoid this public embarassment, he's going to need a system. Every time he sees a graph, he can add at most $30$
 edges to it. However, the next time he sees it, he needs to be able to identify that he's seen it before based on the
 change. To make matters even worse, the graph is very large- it has $1000$ vertices and between $3500$ and $4500$ edges.
 To make things easier for him, he has asked you to write a computer program to help him.
 
-More specifically, you're asked to implement a computer program that does the following:
+More specifically, you're asked to implement a computer program that roughly does the following:
 \begin{enumerate}
-  \item Reads an undirected graph from standard input.
+  \item Gets an undirected graph.
   \item Determines whether the program has seen the graph before.
-  \item If he hasn't seen it before, the program should print ``not seen before'', then print the $30$ edges to be added and exit.
-  \item If he has it before, the program should print ``seen before'' and exit.
+  \item If it hasn't seen it before, signal the $30$ edges to be added and exit.
+  \item If it has it before, it should simply exit.
 \end{enumerate}
-To explain the process more exactly, the judge will do the following:
+To explain the process more exactly, the judge will do the following for each testcase:
 \begin{enumerate}
   \item The judge will generate a graph (exactly how is described below).
-  \item The judge will start your program and give it the graph. If it incorrectly claims that it's seen the graph before,
-  you will receive a ``Wrong Answer'' verdict. Otherwise, the judge will then add the $30$ edges to the graph.
+  \item The judge will start your program and give it the graph. If your program incorrectly claims that it's seen the graph before,
+  you will receive a ``Wrong Answer'' verdict. Otherwise, the $30$ edges will be added to the graph.
   \item The judge will then shuffle the vertex labels (i.e. node $1$ might be changed to $5$, but the new
-  graph will be isomorphic to the one before the shuffle). The order in which edges are given, in addition the
-  order between the vertices of the edge will also be shuffled (i.e. $4 2$ may be changed to $2 4$).
+  graph will be isomorphic to the one before the shuffle). The order in which edges are given, in addition to the
+  order between the vertices of the edge will also be shuffled (i.e. the edge $4$ $2$ may be changed to $2$ $4$).
   \item The judge will then start your program and give it the shuffled graph. If it correctly identifies that
   it's seen the graph before, you have solved this testcase. Otherwise, you will receive a ``Wrong Answer'' verdict.
 \end{enumerate}
@@ -33,24 +33,51 @@ choose M = random number between 3500 and 4500
 for i between 1...M:
   add a random edge to G that doesn't already exist and connects two distinct vertices
 \end{verbatim}
-A python implementation of this process may be found in attachments. Note that the real judge uses a different pseudo-random
-number generator, but it is guaranteed that it is comparable to Python's random number generator.
+All random values are generated uniformly at randomly \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution}.
+
+Example judges implementing these procedures are available to download in attachments.
+
+\section*{Implementation}
+Your solution to the problem must be written in either C++ or Python. Reference implementations
+in both languages can be downloaded at the bottom of the page at attachments.
+
+\textbf{C++}:
+You \textbf{must not} create a main function. Instead, you should implement the following function:\\
+
+\begin{itemize}
+  \item \verb|vector<pair<int,int>> run(vector<pair<int,int>> edges)| \\
+  \begin{itemize}
+    \item The parameter edges is the graph. Its length is between $3500$ and $4500$.
+    Each \verb|pair<int,int>| contains two integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    meaning that there is an edge between the nodes with index $a$ and $b$. Additionally,
+    there will be at most one edge between any pair of vertices.
+    \item If you think you have already seen the graph before, return an empty vector.\\
+    Otherwise, return a vector of length 30 containing the new edges that should be added.
+    Each pair should contain two integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    meaning that you want to add an edge between the nodes with index $a$ and $b$.
+    In addition, after all edges have been added, there must not exist a pair of nodes with more than one edge between them.
+  \end{itemize}
+\end{itemize}
 
 
-\section*{Input}
-The first line of input contains the integer $M$ ($3500 \leq M \leq 4500$), the number of edges in the graph. Note that
-the number of nodes is always exactly $1000$.
+\textbf{Python}:
+Your code should only contain implement the following function:\\
 
-The following $M$ lines each contain the integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$), meaning that there is an edge
-between the nodes with index $a$ and $b$. Additionally, there will be at most one edge between any pair of vertices.
-
-\section*{Output}
-If you think you've seen the graph before, print only ``seen before''.
-
-Otherwise, print ``not seen before''. On the following $30$ lines, print $a b$, meaning that you want to add
-an edge between node $a$ and $b$. Note that $0 \leq a,b \leq 999$ and $a \neq b$ must hold. In addition, after
-all edges have been added, there must not exist a pair of nodes with more than one edge between them.
+\begin{itemize}
+  \item \verb|def run(edges)| \\
+  \begin{itemize}
+    \item The parameter edges is the graph. It is a list of lists and its length is between $3500$ and $4500$.
+    Each inner list contains exactly two ints $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    meaning that there is an edge between the nodes with index $a$ and $b$. Additionally,
+    there will be at most one edge between any pair of vertices.
+    \item If you think you have already seen the graph before, return an empty list.\\
+    Otherwise, return list of lists of length 30 containing the new edges that should be added.
+    Each inner list should contain two ints $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    meaning that you want to add an edge between the nodes with index $a$ and $b$.
+    In addition, after all edges have been added, there must not exist a pair of nodes with more than one edge between them.
+  \end{itemize}
+\end{itemize}
 
 \section*{Scoring}
-Your solution will be tested on 25 testcases. If you pass all of them, your solution will be accepted.
+Your solution will be tested on 100 testcases. If you pass all of them, your solution will be accepted.
 The jury guarantees that there exists a solutions that pass all testcases with very high probability.

@@ -3,7 +3,7 @@ source: Chalmers Challenge 2025
 license: cc by-sa
 type: scoring
 
-validation: custom interactive
+validation: custom
 
 limits:
     time_multiplier: 5
