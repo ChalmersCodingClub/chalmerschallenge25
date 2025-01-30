@@ -4,7 +4,7 @@ Unfortunately, Loke has a very bad memory. Sometimes, he may even completely for
 To avoid this public embarassment, he's going to need a system. Every time he sees a graph, he can add at most $30$
 edges to it. However, the next time he sees it, he needs to be able to identify that he's seen it before based on the
 change. To make matters even worse, the graph is very large- it has $1000$ vertices and between $3500$ and $4500$ edges.
-To make things easier for him, he has asked for your help in writing a computer program to help him.
+To make things easier for him, he has asked you to write a computer program to help him.
 
 More specifically, you're asked to implement a computer program that does the following:
 \begin{enumerate}
@@ -13,7 +13,7 @@ More specifically, you're asked to implement a computer program that does the fo
   \item If he hasn't seen it before, the program should print ``not seen before'', then print the $30$ edges to be added and exit.
   \item If he has it before, the program should print ``seen before'' and exit.
 \end{enumerate}
-To explain the process more exactly, the judge will:
+To explain the process more exactly, the judge will do the following:
 \begin{enumerate}
   \item The judge will generate a graph (exactly how is described below).
   \item The judge will start your program and give it the graph. If it incorrectly claims that it's seen the graph before,
@@ -25,6 +25,7 @@ To explain the process more exactly, the judge will:
   it's seen the graph before, you have solved this testcase. Otherwise, you will receive a ``Wrong Answer'' verdict.
 \end{enumerate}
 
+
 The method for generating the initial graph is as follows:
 \begin{verbatim}
 G = empty graph with 1000 nodes
@@ -33,12 +34,12 @@ for i between 1...M:
   add a random edge to G that doesn't already exist and connects two distinct vertices
 \end{verbatim}
 A python implementation of this process may be found in attachments. Note that the real judge uses a different pseudo-random
-number generator, but it is guaranteed that it is of comparable quality to Python's random number generator.
+number generator, but it is guaranteed that it is comparable to Python's random number generator.
 
 
 \section*{Input}
-The first line of input contains the integer $M$ ($3500 \leq M \leq 4550$), the number of edges in the graph. Note that
-the number of nodes is always $1000$.
+The first line of input contains the integer $M$ ($3500 \leq M \leq 4500$), the number of edges in the graph. Note that
+the number of nodes is always exactly $1000$.
 
 The following $M$ lines each contain the integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$), meaning that there is an edge
 between the nodes with index $a$ and $b$. Additionally, there will be at most one edge between any pair of vertices.

@@ -1,0 +1,66 @@
+\problemname{Building a Castle}
+\noindent
+
+Your sister wants to build a castle. She has $N$ blocks, each with a unique
+height from $1$ to $N$. Since she just tore down her last castle, they are currently 
+laid out in a uniformly random order.
+
+Her new castle must have 4 towers. She will consider each block in the 
+given order. For each block, she can either discard it entirely, or add
+it to one of the towers. A block can be placed on top of a tower if the tower is empty or
+if the height of the new block is at least $K$ greater than the height of the topmost
+block in that tower. Once a block is discarded, it cannot be used
+later.
+
+Since her sense of architectural aesthetics are not yet developed, she only
+cares about maxiziming the number of blocks in her towers. Find the maximum
+number of blocks she can place in her towers.
+
+\section*{Input}
+The first line of input contains the integers $N$ and $K$ ($1 \leq K \leq N \leq 10^5$),
+the number of blocks and the required height difference between blocks.
+
+The following line will contain $N$ integers, the order of the blocks. It is guaranteed
+that the order was generated in such a way that all $N!$ possible orders are equally likely.
+Note that $N$ and $K$ are not selected randomly.
+
+\section*{Output}
+Print an integer: the largest possible total number of blocks in her four towers.
+
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $6$        & $N \leq 30$ \\ \hline
+  $2$    & $14$       & $N \leq 60$ \\ \hline
+  $3$    & $15$       & $N \leq 300$ \\ \hline
+  $4$    & $20$       & $N \leq 3000$ \\ \hline
+  $5$    & $25$       & $N \leq 20000$ \\ \hline
+  $6$    & $20$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+Since $K=1$, the only requirement is that blocks are in increasing height in each tower.
+The block [5 1 2 6 3 7 8 4] can divided into towers [5 6 7 8], [1 2 3 4], [] and [].
+
+\section*{Explanation of Sample 2}
+Once again, $K=1$. It is impossible for any tower to have two blocks. Therefore, each one has 1 block and the answer is
+4.
+
+\section*{Explanation of Sample 3}
+It is impossible to build a castle with all blocks. One possible optimal division of the blocks [7 8 10 5 2 1 9 4 3 6]
+between the towers is [7 10], [5 9], [2 4 6] and [1 3]. Note that if $K$ were 1, it would be possible to build a castle
+with all blocks.
+
+\section*{Explanation of Sample 4}
+Despite $K$ being large, we can build a castle with all blocks, since we do not care about $K$ for the bottommost block
+in each tower.
+
+Note that the samples were not randomly generated. Therefore, your solution does not need to solve the samples to get points
+on the problem. It is guaranteed that the rest of the testcases was generated in such a way that every permutation of size
+$N$ is equally likely.
