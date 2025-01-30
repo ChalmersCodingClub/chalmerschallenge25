@@ -6,7 +6,6 @@ ulimit -s unlimited
 use_solution joshua.cpp
 
 compile gen_rand.py
-compile gen_almostsorted.py
 
 samplegroup
 limits maxn=10
