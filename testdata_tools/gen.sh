@@ -119,7 +119,7 @@ compile_java () {
 # Arguments: file opts
 compile_py () {
   if [[ $2 == *"pypy"* ]]; then
-    add_program $(_base $1) "pypy $1"
+    add_program $(_base $1) "pypy3 $1"
   elif [[ $2 == *"python2"* ]]; then
     add_program $(_base $1) "python2 $1"
   else
