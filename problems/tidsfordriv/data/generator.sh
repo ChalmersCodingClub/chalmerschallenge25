@@ -3,7 +3,7 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-use_solution hugo.cpp
+use_solution joshua_highp.py
 
 compile gen_random.py
 
