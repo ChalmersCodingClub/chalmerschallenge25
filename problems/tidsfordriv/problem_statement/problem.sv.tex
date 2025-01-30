@@ -2,19 +2,23 @@
 Hugo blev just klar med tentaveckan och har riktigt tråkigt, eftersom de nya kurserna inte börjar förrens på måndag.
 För att fördriva tiden har Hugo börjat spela ett solitär-kortspel. Spelet går till såhär:
 
-I början har Hugo en vanlig blandad kortlek framför sig med 52 kort. I varje omgång gissar Hugo sedan vilken valör som det översta kortet har (3, 10, knäkt, etc).
+I början har Hugo en vanlig blandad kortlek framför sig med $52$ kort. I varje omgång gissar Hugo sedan vilken valör som det översta kortet har (3, 10, knäkt, etc).
 Efter att han gissat vänder han på översta kortet, och om han gissade rätt får han ett poäng, varpå nästa omgång börjar med nästa kort överst.
 
 Hjälp Hugo komma på hur sannolikt det är att han gissar rätt efter $N$ rundor av spelet, givet att han spelar optimalt.
 
 \section*{Indata}
 Den första raden innehåller ett heltal $N$ ($0 \le N \le 51$): antalet omgångar som har spelats hittils.
-Sedan följer $N$ rader som beskriver vilket kort som har dykt upp i varje omgång, t.ex. 10D, 4C, KS.
-Korten beskrivs genom en valör (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K) följt av en färg (C, S, D, H).
+
+Sedan följer $N$ rader som beskriver vilket kort som har dykt upp i varje omgång, t.ex. \texttt{10D}, \texttt{4C}, \texttt{KS}.
+Korten beskrivs genom en valör (\texttt{A}, \texttt{2}, \texttt{3}, \texttt{4}, \texttt{5}, \texttt{6}, \texttt{7}, \texttt{8},
+\texttt{9}, \texttt{10}, \texttt{J}, \texttt{Q}, \texttt{K}) följt av en färg (\texttt{C}, \texttt{S}, \texttt{D}, \texttt{H}).
 Det är garanterat att inget kort dyker upp två gånger.
 
 \section*{Utdata}
-Skriv ut sannolikheten att Hugo gissar rätt, som ett nummer mellan 0 och 1 med absolut eller relativt fel på mindre än $10^{-3}$.
+Skriv ut ett decimtaltal mellan 0 och 1: sannolikheten att Hugo gissar rätt.
+
+Ditt svar kommer att accepteras om det relativa eller absoluta felet från det rätta svaret är mindre än $10^{-3}$.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.

@@ -2,19 +2,24 @@
 Hugo has just finished his exam week and is really bored, as the new courses don't start until Monday.
 To pass the time, Hugo has started playing a solitaire card game. The game works as follows:
 
-Initially, Hugo has a standard shuffled deck of 52 cards in front of him. In each round, Hugo guesses the rank of the top card (3, 10, jack, etc).
+Initially, Hugo has a standard shuffled deck of $52$ cards in front of him. In each round, Hugo guesses the rank of the top card (3, 10, jack, etc).
 After he makes his guess, he flips over the top card, and if he guessed correctly, he scores a point, and the next round begins with the next card on top.
 
 Help Hugo figure out how likely it is that he guesses correctly after $N$ rounds of the game, given that he plays optimally.
 
 \section*{Input}
-The first line contains an integer $N$ ($0 \le N \le 51$): the number of rounds that have been played so far.
-Then follow $N$ lines describing which card has appeared in each round, e.g., 10D, 4C, KS.
-The cards are described by a rank (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K) followed by a suit (C, S, D, H).
+The first line contains an integer $N$ ($0 \le N \le 51$), the number of rounds that have been played so far.
+
+The following $N$ lines each describe which card has appeared in each round, e.g. \texttt{10D}, \texttt{4C}, \texttt{KS}.
+The cards are described by a rank (\texttt{A}, \texttt{2}, \texttt{3}, \texttt{4}, \texttt{5}, \texttt{6}, \texttt{7}, \texttt{8},
+\texttt{9}, \texttt{10}, \texttt{J}, \texttt{Q}, \texttt{K}) followed by a suit (\texttt{C}, \texttt{S}, \texttt{D}, \texttt{H}).
 It is guaranteed that no card appears twice.
 
 \section*{Output}
-Print the probability that Hugo guesses correctly, as a number between 0 and 1 with an absolute or relative error of less than $10^{-3}$.
+Print a decimal number between 0 and 1: the probability that Hugo guesses correctly.
+
+Your answer will be considered correct if the absolute or relative difference from the correct answer is less than $10^{-3}$.
+
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
