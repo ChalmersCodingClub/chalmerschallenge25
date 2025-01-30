@@ -1,6 +1,8 @@
 \problemname{Mountainpeeker}
 \noindent
 
+\illustration{0.5}{mountains.png}{Illustration of sample 4. Joel can see all mountain peaks except the left-most and the right-most. Please note that the positions of the valleys are arbitrary, to solve the problem only the positions of the peaks need to be considered.}
+
 Joel has spent a lot more time climbing mountains than programming the last 6 months, and he once again finds himself on top of another mountain.
 This time he has climbed a very special mountain range, where all the mountain tops are on a single line. 
 The mountain Joel has climbed is $h$ meters high, and he is at relative horizontal position $0$ in the mountain range.
@@ -18,7 +20,9 @@ $x$ describes the horizontal relative position to Joel, and $y$ is the height of
 Note that $x$ may be negative!
 
 \section*{Output}
-Print an integer: the number of other mountain tops Joel can see.
+Print an integer: the number of other mountain tops Joel can see. 
+
+Joel can see a mountain peak at $(x^*, y^*)$ if and only if there are no other mountain peaks placed \textbf{\emph{above or on}} the line segment formed between his position $(0, h)$ and $(x^*, y^*)$
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -33,4 +37,7 @@ a set of test cases. To get the points for a test group you need to solve all te
   $3$    & $10$       & $N \leq 1000$ \\ \hline
   $4$    & $50$       & No additional constraints. \\ \hline
 \end{tabular}
+
+\section*{Explanation of Sample 1}
+The first peak at $(1, 7)$ lies perfectly on the line segment between Joel $(0, 7)$ and the second peak $(2, 7)$. By the defintion of seeing this means Joel can NOT see the second peak.
 
