@@ -1,30 +1,36 @@
 \problemname{Polkagrios}
 \noindent
 
-The board of Chalmers Coding Club have departed from Gothenburg on tågluff to Hamburg, Zürich, Venice and
-beyond, but the first stop is Gränna! Gränna is famous for its polkagris, which is similar to candy
-canes, but are available in many different colors and flavors. The colors of the sticks are typically
-twisted together, but in order for this problem to make sense you have to imagine they are sequences
-of single-colored segments.
+The board of Chalmers Coding Club have departed from Gothenburg on tågluff to Hamburg, Zürich,
+Venice and beyond, but the first stop is Gränna! Gränna is famous for its polkagrisar, which are
+similar to candy canes but are available in many different colors and flavors. The colors of the
+sticks are typically twisted together, but in order for this problem to make sense you have to
+imagine they are sequences of single-colored segments.
 
 On their way there, the board has spent a great deal of time deciding the flavors for their desired
-polkagris, which can be represented as a string of $T$ letters $A-Z$. But upon arrival to the
-polkagris shop, all their sticks are sold out except for a few belonging to one same batch, that,
-unfortunately, does not match the desired configuration.
+polkagris, which can be represented as a string of $t$ letters \verb|A|-\verb|Z|. But upon arrival
+to the polkagris shop, all their sticks are sold out except for a few belonging to one same batch,
+that, unfortunately, does not match the desired configuration.
 
 A little distraught, but not that much since the trip will be very fun regardless, the board leaves
-to continue their journey without polkagrisar. That night, Gustav, who has in recent times become
+to continue their journey without polkagrisar. That night, Gustav, who in recent times has become
 impressively culinarily minded, realizes that maybe they could have reheated the polkagris while
-folding one of its ends over and onto itself, kneading it into a single stick again. Maybe this
-process, if performed iteratively, could have turned the store's polkagris into the one that they
-actually wanted?
+folding one of its ends over and onto the main body, kneading it into a single stick again. Any
+difference in length or width of the respective segments being merged does not matter since the
+sugary mass is highly deformable, but only identical flavors are allowed to be merged to avoid a
+bland mess. For example, the polkagris \verb|CBABCDCB| can be folded over the \verb|D| into
+\verb|CBABBCCD|, then again over the \verb|A|, requiring just a little bit of stretching, into
+\verb|ABBBCCCD| which satisfies anyone with a craving for \verb|ABCD|.
+
+Maybe this process, if performed iteratively, could have turned the store's polkagris
+into the one that they actually wanted?
 
 \section*{Input}
 
-The first line of input contains the integers $t$ and $n$ $(1 \leq n \leq t \leq 3 \cdot 10^7)$,
-the lengths of the store's available and the board's desired polkagrisstång. 
+The first line of the input contains the two integers $n$ and $t$, the lengths of the store's
+available and the board's desired polkagrisstång. $(1 \leq t \leq n \leq 10^7)$
 
-The second line contains $T$, the store's polkagrisstång.
+The second line contains the store's available polkagrisstång.
 
 The third line contains the board's desired polkagrisstång.
 
@@ -58,6 +64,6 @@ The polkagris \verb|ABC| is of course the same as \verb|CBA|, just turn it the o
 
 \section*{Explanation of sample 3}
 
-The leftmost flavor of \verb|ABABABCA| can be repeatedly folded over to reach \verb|ABCA|, but since
-there is no way to fold away the rightmost \verb|A| creating the polkagris \verb|ABC| is
+The leftmost flavor of \verb|ABABABCA| can be repeatedly folded over to reach \verb|ABCA|. However,
+since there is no way to fold away the rightmost \verb|A|, creating the polkagris \verb|ABC| is
 unfortunately not possible.
