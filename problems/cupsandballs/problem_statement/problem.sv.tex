@@ -1,7 +1,7 @@
 \problemname{Muggar och bollar}
 
-Rasmus har utmanat Hugo på en lek med tre koppar i rad och en boll. Bollen börjar under koppen i
-mitten (Kopp 2), och Rasmus kommer sedan snabbt att byta plats på kopparna $N$ gånger.
+Rasmus har utmanat Hugo på en lek med tre koppar numrerade från 1 till 3 i rad och en boll. Bollen börjar under koppen i
+mitten (kopp 2), och Rasmus kommer sedan snabbt att byta plats på kopparna $N$ gånger.
 Hugo ska sedan gissa under vilken kopp bollen finns. Efter att Hugo har gissat fel 10 gånger i rad
 har Rasmus börjat tycka synd om honom och vill nu hjälpa honom att vinna en runda.
 Hugo har ännu en gång valt en kopp att gissa på, och Rasmus behöver din hjälp att bestämma vilka
@@ -15,8 +15,9 @@ Nästa rad innehåller heltalet $N$ ($1 \le N \le 100$), antalet byten som Rasmu
 Därefter följer $N$ rader med två heltal $a_i$ och $b_i$ ($1 \le a_i < b_i \le 3$), kopparna som byter plats.
 
 \section*{Utdata}
-Skriv ut två heltal, kopparna som ska byta plats för att Hugo ska vinna.
+Skriv ut två heltal $a,b$ ($1 \leq a,b \leq 3$, $a \neq b$), kopparna som ska byta plats för att Hugo ska vinna.
 
+Notera alltså att du måste byta plats på två \textbf{olika} koppar.
 
 \section*{Förklaring av exempelfall}
 I exempelfall 1 befinner sig bollen under kopp 1 efter alla byten. Om Rasmus byter på kopp 1 och 2 vinner
