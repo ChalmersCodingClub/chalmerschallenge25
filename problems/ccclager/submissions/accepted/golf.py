@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 r,s,k=range,sorted,lambda:input().split()
 n,m=map(int,k())
 def q(_):a,b=k();return(int(b),1+(a in("Joshua","Gustav")))

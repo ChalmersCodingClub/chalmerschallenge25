@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 ball = 2
 hugo_guess = int(input())
 for i in range(int(input())):

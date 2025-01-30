@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 N, M = map(int, input().split())
 ppl_pos = [input().split() for _ in range(N)]
 curtains = [input().split() for _ in range(M)]

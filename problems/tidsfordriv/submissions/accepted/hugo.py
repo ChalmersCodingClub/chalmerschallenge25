@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from itertools import chain
 ranks = [*chain(map(str,range(2, 11)), "AJQK")]
 cnt = {r:4 for r in ranks}

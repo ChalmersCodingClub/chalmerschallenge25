@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 N, T = [int(x) for x in input().split()]
 initial = input()
 target = input()

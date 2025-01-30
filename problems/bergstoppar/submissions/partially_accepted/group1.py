@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 n = int(input());
 h = int(input());
 
