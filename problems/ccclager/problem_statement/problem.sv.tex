@@ -1,15 +1,16 @@
 \problemname{CCC läger}
 
-Det är dags för ett nytt läger i Härryda med Chalmers Coding Club och som tradition har alla bastat till klockan 3 på
-morgonen och har nu gått och lagt sig. Alla på lägret sover i ett stort avlångt rum (Storstugan) men det finns dessvärre
-också ett fönster längs långsidan riktad rakt mot där morgonsolen snart dyker upp. Mer specifikt har lägret $N$ stycken
-deltagare där den $i$:te deltagaren sover $d_i$ meter från dörren (på kortsidan) av rummet.
+Det är dags för ett nytt läger i Härryda med Chalmers Coding Club! Per tradition har alla bastat till klockan 3 på
+morgonen och har nu gått och lagt sig. Hela lägret sover tillsammans i ett stort avlångt rum (Storstugan), men det finns dessvärre
+också ett fönster längs långsidan riktad rakt mot morgonsolen som snart kommer stiga. Det finns $N$ deltagare där den $i$:te deltagaren
+sover $d_i$ meter från dörren (på kortsidan) av rummet.
 
 \illustration{0.5}{sample_bild.png}{Illustrering av exempel $1$, med gardiner markerade i rött}
 
-Rasmus har vaknat tidigt och märker att det finns ett antal gardiner som täcker delar av fönstret på $M$ olika ställen,
-gardin bit $j$ täcker solen för alla som sover mellan $L_j$ och $R_j$ meter från dörren, så att de kan sova vidare. Alla
-som blir träffade av den starka morgonsolen kommer däremot direkt att vakna.
+Rasmus har vaknat tidigt och märker att det finns ett antal gardiner som täcker delar av fönstret vid $M$ olika ställen.
+Varje gardin täcker solen för alla som sover mellan $L$ och $R$ (inklusive) meter från dörren, så att de kan sova vidare.
+Notera att flera gardiner kan täcka solen vid samma del av fönstret.
+Tyvärr kommer de som inte täcks av en bit gardin träffas av den starka morgonsolen och vakna direkt.
 
 För att hjälpa alla stackars deltagare som kommer att vakna tidigt tänker Rasmus sätta på kaffe. Han tänker att varje
 deltagare kommer att behöva en kopp kaffe för att vakna ordentligt, men han vet också att Joshua och Gustav
@@ -18,14 +19,17 @@ många koppar kaffe måste Rasmus sätta på?
 
 
 \section*{Indata}
-Första raden består av två tal $N$ ($1 \le N \le 2 * 10^5$) och $M$ ($0 \le M \le 2 * 10^5$), antalet medlemmar och antalet bitar gardin. Detta följs
-av $N$ rader, den $i$:te raden innehåller namnet på den $i$:te deltagaren följt av $d_i$ ($0 \le d_i \le 10^9$), hur långt
-från dörren de sover. Varje namn består av 3 till 10 bokstäver av tecken mellan a-z, där alla bokstäver är små förutom första.
-Sedan följer $M$ rader, där den $j$:te raden innehåller två tal, $L_j$ och $R_j$ ($0 \le L_j \le R_j \le 10^9$),
-intervallet som den $j$:te gardinen täcker.
+Den Första raden innehåller två heltal $N$ och $M$ ($1 \le N \le 2 \cdot 10^5$, $0 \leq M \leq 2 \cdot 10^5$), antalet medlemmar och antalet bitar gardin.
+
+Detta följs av $N$ rader, den $i$:te raden innehåller namnet på den $i$:te deltagaren följt av $d_i$ ($0 \le d_i \le 10^9$), hur långt
+från dörren de sover. Varje namn består av 3 till 10 bokstäver. Det börjar med en stor bokstav \texttt{A}-\texttt{Z}, och resten är små bokstäver \texttt{a}-\texttt{z}.
+Det är garanterat att varje deltagarnamn är unikt.
+
+De följande $M$ raderna innehåller vardera två tal, $L$ och $R$ ($0 \le L_j \le R_j \le 10^9$),
+vilket betyder att en gardin täcker intervallet $[L, R]$.
 
 \section*{Utdata}
-Skriv ut ett tal, antalet koppar kaffe som Rasmus måste sätta på för att tillfredställa de nyvakna deltagarna.
+Skriv ut ett heltal: antalet koppar kaffe som Rasmus måste sätta på för att tillfredställa de nyvakna deltagarna.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -35,8 +39,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $10$       & $N, M \le 100$; $d_i, L_j, R_j \le 1000$ \\ \hline
-  $2$    & $20$       & $M \le 100$; $d_i, L_j, R_j \le 10^5$ \\ \hline
+  $1$    & $10$       & $N, M \le 100$, $d_i, L_j, R_j \le 1000$ \\ \hline
+  $2$    & $20$       & $M \le 100$, $d_i, L_j, R_j \le 10^5$ \\ \hline
   $3$    & $20$       & $d_i, L_j, R_j \le 10^5$ \\ \hline
   $4$    & $50$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+Dessvärre kommer Joshua, Jens och Gustav att vakna. Joshua och Gustav behöver två koppar kaffe vardera, medan Jens endast behöver en.
+Därmed behöver Rasmus brygga 5 koppar kaffe sammanlagt.
