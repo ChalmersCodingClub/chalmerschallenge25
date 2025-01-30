@@ -2,9 +2,10 @@
 . ../../../testdata_tools/gen.sh
 
 #ulimit -s unlimited
-use_solution gustav.cpp
+# Takes a long time to run because high precision is slow
+use_solution ../partially_accepted/joshua_highp.py
 
-compile gen_rand.py
+compile gen_rand.py pypy
 
 samplegroup
 limits maxn=10
@@ -31,3 +32,6 @@ group group2 50
 limits maxn=2000
 include_group group1
 tc g2-1 gen_rand r=666 g=666 b=666
+tc g2-2 gen_rand r=10 g=20 b=1970
+tc g2-3 gen_rand r=1970 g=10 b=20
+tc g2-4 gen_rand r=20 g=1970 b=10
