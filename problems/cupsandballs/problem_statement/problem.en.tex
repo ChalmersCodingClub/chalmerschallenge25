@@ -1,20 +1,27 @@
 \problemname{Cups and Balls}
 
-Rasmus has challenged Hugo to a game with three cups numbered from 1 to 3 in a row and a ball. The ball starts under the middle cup (cup 2), and Rasmus will then quickly swap the cups $N$ times. Hugo must then guess under which cup the ball is located. After Hugo has guessed incorrectly 10 times in a row, Rasmus has started to feel sorry for him and now wants to help him win a round. Hugo has once again chosen a cup to guess, and Rasmus needs your help to determine which two different cups should be swapped for Hugo to win.
+Rasmus has challenged Hugo to a game with three cups numbered from 1 to 3 in a row and a ball.
+The ball starts under the middle cup (cup 2), and Rasmus will then quickly swap the cups $N$ times.
+Hugo must then guess under which cup the ball is located. After Hugo has guessed incorrectly 10 times
+in a row, Rasmus has started to feel sorry for him and now wants to help him win a round. Hugo has
+once again chosen a cup to guess, and Rasmus needs your help to determine which two different cups
+should be swapped for Hugo to win.
 
 \section*{Input}
 The first line contains the integer $G$, the cup Hugo guessed.
 
-The next line contains the integer $N$ ($1 \le N \le 100$), the number of swaps Rasmus made between the cups.
+The next line contains the integer $N$ ($1 \le N \le 100$), the number of times Rasmus swapped two cups.
 
-After that, there are $N$ lines with two integers $a_i$ and $b_i$ ($1 \le a_i < b_i \le 3$), the cups that swap places.
+The following $N$ lines each contain two integers $a_i$ and $b_i$ ($1 \le a_i < b_i \le 3$), the cups that swap places.
 
 \section*{Output}
 Print two integers $a,b$ ($1 \leq a,b \leq 3$, $a \neq b$), the cups that should be swapped for Hugo to win.
 
+If there are multiple valid answers, any is accepted.
+
 Note that you must swap two \textbf{different} cups.
 
-\section*{Explanation of Example Cases}
-In example case 1, the ball is under cup 1 after all the swaps. If Rasmus swaps cup 1 and 2, Hugo wins because he guessed on cup 2.
+\section*{Explanation of Samples}
+In sample 1, the ball is under cup 1 after all the swaps. If Rasmus swaps cup 1 and 2, Hugo wins because he guessed on cup 2.
 
-In example case 2, Hugo’s guess is correct. Therefore, Rasmus must swap cup 1 and 3 so that Hugo's guess is correct after the swap.
+In sample 2, Hugo's guess is correct. Therefore, Rasmus must swap cup 1 and 3 so that Hugo's guess is still correct after the swap.
