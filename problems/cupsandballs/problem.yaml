@@ -8,6 +8,6 @@ grading:
     show_test_data_groups: yes
 
 limits:
-    time_multiplier: 2
+    time_multiplier: 5
 
 validation: custom

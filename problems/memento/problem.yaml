@@ -5,5 +5,8 @@ type: scoring
 
 validation: custom interactive
 
+limits:
+    time_multiplier: 5
+
 grading:
     show_test_data_groups: yes
