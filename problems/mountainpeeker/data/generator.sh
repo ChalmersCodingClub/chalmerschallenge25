@@ -4,7 +4,7 @@
 #ulimit -s unlimited
 use_solution joel.py
 
-MAX_X=50000
+MAX_X=100000
 MAX_H=8848
 
 compile gen_rand.py
@@ -41,18 +41,18 @@ group group3 10
 limits maxn=1000 maxh=$MAX_H minx=-$MAX_X maxx=$MAX_X
 include_group group2
 tc 2
-tc g3-1 gen_rand n=100 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g3-2 gen_rand n=1000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g3-3 gen_evil n=1000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g3-4 gen_eviler n=1000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
+tc g3-1 gen_rand n=100 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g3-2 gen_rand n=1000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g3-3 gen_evil n=1000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g3-4 gen_eviler n=1000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
 
 group group4 50
-limits maxn=50000 maxh=$MAX_H minx=-$MAX_X maxx=$MAX_X
+limits maxn=100000 maxh=$MAX_H minx=-$MAX_X maxx=$MAX_X
 include_group group3
 tc 3
 tc 4
-tc g4-1 gen_rand n=10000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-2 gen_rand n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-3 gen_evil n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
-tc g4-4 gen_eviler n=50000 max_h=$MAX_H min_x=-50000 max_x=$MAX_X
+tc g4-1 gen_rand n=100000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g4-2 gen_rand n=100000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g4-3 gen_evil n=100000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
+tc g4-4 gen_eviler n=100000 max_h=$MAX_H min_x=-${MAX_X} max_x=$MAX_X
 
