@@ -4,18 +4,24 @@
 using namespace std;
 
 void run() {
-  Int(1, 3);
+  int n = Int(1, 100000);
   Endl();
-  int n = Int(1, 100);
+  Int(1, 100000);
   Endl();
+  int oats = 0;
   for (int i = 0; i < n; i++) {
-    int a, b;
-    a = Int(1, 3);
-    Space();
-    b = Int(1, 3);
+    string str;
+    cin >> str;
+    assert(str == "ADD" || str == "EAT" || str == "PASS");
     Endl();
-    assert(a < b);
+    if (str == "ADD") {
+      oats++;
+    } else if (str == "EAT") {
+      oats--;
+    }
+    assert(oats >= 0);
   }
+  assert(oats == 0);
   Eof();
 }
 

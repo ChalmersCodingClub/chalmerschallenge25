@@ -5,7 +5,7 @@ def solve():
     N = int(input())
     X = int(input())
     actions = []
-    for i in range(N):
+    for _ in range(N):
         actions.append(input())
 
     queue = deque()
@@ -13,16 +13,13 @@ def solve():
     for day in range(N):
         action = actions[day]
 
-        while queue and queue[0] + X <= day:
-            queue.popleft()
-            print("ono..")
-            return
 
         if action == "ADD":
             queue.append(day)
         elif action == "EAT":
-            if queue:
-                queue.popleft()
+            if queue.popleft() + X < day:
+                print("ono..")
+                return
 
     print("yay!")
 
