@@ -4,9 +4,10 @@
 using namespace std;
 
 void run() {
-  int n = Int(1, 100000);
+  int MAXN = Arg("maxn");
+  int n = Int(1, MAXN);
   Endl();
-  Int(1, 100000);
+  Int(1, 300000);
   Endl();
   int oats = 0;
   for (int i = 0; i < n; i++) {

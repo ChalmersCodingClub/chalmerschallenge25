@@ -12,18 +12,26 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-p = float(cmdlinearg('p'))
-x = int(cmdlinearg("x"))
-g = int(cmdlinearg("g"))
+kind = int(cmdlinearg('kind'))
+maxn = int(cmdlinearg('maxn'))
 
-n = random.randint(1, 100_000)
-arr = ["PASS"] * n
-for _ in range(int(p*n)):
-    a = random.randrange(n)
-    b = min(a + random.randint(1, x+g), n-1)
-    if a != b and arr[a] == "PASS" and arr[b] == "PASS":
-        arr[a] = "ADD"
-        arr[b] = "EAT"
+n = random.randint(1, maxn)
+x = random.randint(1, 10) if random.randint(0,1) else random.randint(1,maxn)
+arr = []
+if kind == 1:
+    arr = ["PASS"] * n
+elif kind == 2:
+    n = n // 2 * 2
+    arr = ["ADD","EAT"] * (n//2)
+elif kind == 3:
+    x = min(x, n//2)
+    arr = ((["ADD"] * x +  ["EAT"] * x) * (n//(2*x)))
+    while len(arr) < n: arr.append("PASS")
+else:
+    k = maxn//4
+    n = 4*k
+    x = 2*k
+    arr = ["ADD"]*k + ["ADD","EAT"]*k + ["EAT"]*k
 
 print(n)
 print(x)
