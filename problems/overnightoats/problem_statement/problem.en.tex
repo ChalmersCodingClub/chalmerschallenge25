@@ -1,21 +1,34 @@
 \problemname{Overnight Oats}
 
-As the true porridge connoisseur she is, Julia has decided to start eating a new type of porridge --
-overnight oats. During an $N$-day period, each evening she will either prepare a jar of overnight
-oats, eat a jar of overnight oats, or do neither. However, since overnight oats are food, and food
-can go bad, the oats can also expire. Each jar expires after $X$ days, and she must eat it before then.
-Julia also needs to leave room in her stomach for all the other types of porridge she eats daily
-(oat porridge, semolina porridge, rice porridge, etc.), so she can only eat one jar of
-overnight oats per day. Julia wants to avoid any jar of overnight oats going bad. Is this possible?
+As a true porridge connoisseur, Julia has decided to start eating a new type of porridge --
+overnight oats. During an $N$-day period, each evening she will either prepare a cup of overnight
+oats, eat her oldest cup of overnight oats, or do neither. However, since overnight oats are food,
+and food can go bad, the oats can also expire (even though Julia stores them in her refrigerator).
+Each cup has a shelf life of $X$ days, after which it goes bad. Julia also leaves room in her
+stomach for all the other types of porridge she eats (oat porridge, semolina porridge, rice
+porridge, etc.), so you should not feel bad for her only getting to eat a single cup of overnight
+oats a time, and not even every day.
+
+It is guaranteed that the refrigerator will be empty at the end of the $N$ days. Additionally, Julia
+will never eat if there are no overnight oats in the fridge. Julia wants to avoid eating expired
+overnight oats.
+
+Is this possible?
 
 \section*{Input}
+
 The first line contains the integer $N$ ($1 \leq N \leq 10^6$).
 
 The second line contains the integer $X$ ($1 \leq X \leq 10^6$).
 
-Then follow $N$ lines, each containing either "ADD", "EAT", or "PASS".
+Then follow $N$ lines, each containing either ``ADD'', ``EAT'', or ``PASS''.
 
 \section*{Output}
-Print "yay!" if no jar of overnight oats expires before Julia eats it.
-Print "ono.." if any jar becomes too old.
 
+Print ``yay!'' if no cup of overnight oats expires before Julia eats it.
+Print ``ono..'' if any cup becomes too old.
+
+\section*{Explanation of Sample 1}
+
+The porridge Julia prepares on the first day will on the third day be $2$ days old, which is one
+more than its shelf life and so it will be expired when she eats it :(
