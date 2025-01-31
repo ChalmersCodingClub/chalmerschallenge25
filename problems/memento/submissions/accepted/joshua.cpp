@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
-#define int ll
-const int inf = int(1e18);
 
 typedef vector<int> vi;
 typedef vector<vi> vvi;
@@ -14,7 +11,6 @@ typedef pair<int, int> p2;
 #define repe(i, container) for (auto& i : container)
 #define sz(container) ((int)container.size())
 #define all(x) begin(x),end(x)
-#define ceildiv(x,y) ((x + y - 1) / (y))
 
 inline void fast() { ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL); }
 
@@ -22,22 +18,18 @@ inline void fast() { ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define assert(x) if (!(x)) __debugbreak()
 #endif
 
-mt19937 rng((random_device())());
-template<typename T, typename U> inline int randint(T lo, U hi) { return uniform_int_distribution<int>((int)lo, (int)hi)(rng); } // [lo,hi]
-
 const int k = 30;
-void handle()
+const int n = 1000;
+bitset<n*n> edges;
+std::vector<std::pair<int,int>> run(std::vector<std::pair<int,int>> S)
 {
-    const int n = 1000;
-    bitset<n*n> edges;
-    int m;
-    cin >> m;
+    int m = S.size();
     vector<p2> graph;
     vi deg(n);
     rep(i, m)
     {
         int a,b;
-        cin >> a >> b;
+        tie(a,b)=S[i];
         edges[a*n+b]=1;
         edges[b*n+a]=1;
         deg[a]++;
@@ -48,7 +40,6 @@ void handle()
     rep(i, n) nodes.emplace_back(deg[i], i);
     sort(nodes.rbegin(), nodes.rend());
 
-    
     if (nodes[0].first!=nodes[1].first)
     {
         int cnt = 0;
@@ -66,30 +57,22 @@ void handle()
         if (cnt>20)
         {
             // NOT first
-            cout << "seen before" << endl;
-            return;
+            return {};
         }
     }
-
-    cout << "not seen before" << endl;
 
 	int root = nodes[0].second;
 	int placed = 0;
 	int i = 1;
+    vector<p2> ret;
 	while (placed < k)
 	{
 		if (!edges[root*n+nodes[i].second])
 		{
-			cout << root << " " << nodes[i].second << endl;
+            ret.emplace_back(root, nodes[i].second);
 			placed++;
 		}
 		i++;
 	}
-}
-
-signed main()
-{
-    handle();
-    handle();
-    return 0;
+    return ret;
 }

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import os
 import sys
-from random import randint as rand
 import random
 
 from memento import run
@@ -12,16 +11,16 @@ def main():
     _USER_FAIL = 120
     _SECRET_FAIL = "FAILwerhiuwehruiwehuriphwer"
     _SECRET_KEY = "SUCCESSlmwnerhbiwerhuebifi"
-    n = 1000
 
+    n = 1000
     def generate_graph():
         edges = []
-        m = rand(3500, 4500)
+        m = random.randint(3500, 4500)
 
         seen = set()
         for i in range(m):
-            a = rand(0, n-1)
-            b = rand(0, n-1)
+            a = random.randint(0, n-1)
+            b = random.randint(0, n-1)
             if a==b:
                 continue
             if (a,b) in seen:
@@ -44,16 +43,22 @@ def main():
         w = os.fdopen(w, 'w')
         
         res = run(edges)
+        if type(res) != list:
+            print(f"{_SECRET_FAIL}Did not give 30 edges in first round")
+            sys.exit(_USER_FAIL)
         if len(res) != 30:
             print(f"{_SECRET_FAIL}Did not give 30 edges in first round")
             sys.exit(_USER_FAIL)
         
         for i in range(30):
             e = res[i]
+            if type(e) != list:
+                print(f"{_SECRET_FAIL}Gave invalid edge in first round")
+                sys.exit(_USER_FAIL)
             if len(e)!=2:
                 print(f"{_SECRET_FAIL}Gave invalid edge in first round")
                 sys.exit(_USER_FAIL)
-            if not isinstance(e[0], int) or not isinstance(e[1], int):
+            if type(e[0]) != int or type(e[1]) != int:
                 print(f"{_SECRET_FAIL}Gave invalid edge in first round")
                 sys.exit(_USER_FAIL)
             if e[0] < 0 or e[1] < 0 or e[0] >= n or e[1] >= n:
@@ -86,10 +91,14 @@ def main():
         for i in range(len(edges)):
             edges[i][0] = vertex_relabel[edges[i][0]]
             edges[i][1] = vertex_relabel[edges[i][1]]
-            if rand(0,1):
+            if random.randint(0,1):
                 edges[i]=(edges[i][1],edges[i][0])
 
-        if len(run(edges)):
+        res = run(edges)
+        if type(res) != list:
+            print(f"{_SECRET_FAIL}Gave invalid response in second round")
+            sys.exit(_USER_FAIL)
+        if len(res) > 0:
             print(f"{_SECRET_FAIL}Did not recognize it had already seen graph in second round")
             sys.exit(0)
 

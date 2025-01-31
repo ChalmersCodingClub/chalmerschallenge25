@@ -33,21 +33,21 @@ choose M = random number between 3500 and 4500
 for i between 1...M:
   add a random edge to G that doesn't already exist and connects two distinct vertices
 \end{verbatim}
-All random values are generated uniformly at randomly \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution}.
+All random values are generated uniformly at random \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution}.
 
 Example judges implementing these procedures are available to download in attachments.
 
 \section*{Implementation}
 Your solution to the problem must be written in either C++ or Python. Reference implementations
-in both languages can be downloaded at the bottom of the page at attachments.
+for both languages can be downloaded at the bottom of the page at attachments.
 
 \textbf{C++}:
 You \textbf{must not} create a main function. Instead, you should implement the following function:\\
 
 \begin{itemize}
-  \item \verb|vector<pair<int,int>> run(vector<pair<int,int>> edges)| \\
+  \item \verb|std::vector<std::pair<int,int>> run(std::vector<std::pair<int,int>> edges);| \\
   \begin{itemize}
-    \item The parameter edges is the graph. Its length is between $3500$ and $4500$.
+    \item The parameter \texttt{edges} is the graph. Its length is between $3500$ and $4530$.
     Each \verb|pair<int,int>| contains two integers $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
     meaning that there is an edge between the nodes with index $a$ and $b$. Additionally,
     there will be at most one edge between any pair of vertices.
@@ -61,23 +61,27 @@ You \textbf{must not} create a main function. Instead, you should implement the 
 
 
 \textbf{Python}:
-Your code should only contain implement the following function:\\
+Your code should only contain the implementation of the following function:\\
 
 \begin{itemize}
   \item \verb|def run(edges)| \\
   \begin{itemize}
-    \item The parameter edges is the graph. It is a list of lists and its length is between $3500$ and $4500$.
-    Each inner list contains exactly two ints $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    \item The parameter \texttt{edges} is the graph. It is a list of lists and its length is between $3500$ and $4530$.
+    Each inner list contains exactly two \texttt{ints} $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
     meaning that there is an edge between the nodes with index $a$ and $b$. Additionally,
     there will be at most one edge between any pair of vertices.
     \item If you think you have already seen the graph before, return an empty list.\\
-    Otherwise, return list of lists of length 30 containing the new edges that should be added.
-    Each inner list should contain two ints $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
+    Otherwise, return a list of lists of length 30 containing the new edges that should be added.
+    Each inner list should contain two \texttt{ints} $a$ and $b$ ($0 \leq a,b \leq 999$, $a \neq b$),
     meaning that you want to add an edge between the nodes with index $a$ and $b$.
+    Note that the each edge must be a list. If you give a tuple, you will receive a ``Wrong Answer'' verdict instead.
     In addition, after all edges have been added, there must not exist a pair of nodes with more than one edge between them.
   \end{itemize}
 \end{itemize}
 
+It is important that your solution does not read or write from standard input/output. If your solution does this, 
+you will likely get a strange error message.
+
 \section*{Scoring}
 Your solution will be tested on 100 testcases. If you pass all of them, your solution will be accepted.
-The jury guarantees that there exists a solutions that pass all testcases with very high probability.
+The jury guarantees that there exists a solution that passes all testcases with very high probability.

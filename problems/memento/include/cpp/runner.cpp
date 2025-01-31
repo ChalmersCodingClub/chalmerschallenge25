@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-#include "karleksbrev.h"
+#include "memento.h"
 
 using namespace std;
 
@@ -12,126 +12,100 @@ using namespace std;
 namespace {
 	static const int USER_FAIL = 120;
 	const int num_testcases = 50;
-	string _SECRET_KEY = "SUCCESSiujwefguiwehuioew";
-	string _SECRET_FAIL = "FAILiujwefguiwehuioew";
-    unsigned long long rng_state;
-    unsigned long long next_rand()
-    {
-        rng_state ^= (rng_state << 21);
-        rng_state ^= (rng_state >> 35);
-        rng_state ^= (rng_state << 4);
-        rng_state *= 2685821657736338717ULL;
-        return rng_state;
-    }
-    unsigned long long rand_interval(unsigned long long l, unsigned long long r) {
-        unsigned long long range = r - l + 1;
-        return l + (next_rand() % range);
-    }
+	string _SECRET_KEY = "SUCCESSlmwnerhbiwerhuebifi";
+	string _SECRET_FAIL = "FAILwerhiuwehruiwehuriphwer";
 }
 
-template <typename T>
-void permute_vector(std::vector<T>& vec) {
-    for (size_t i = vec.size() - 1; i > 0; --i) {
-        size_t j = rand_interval(0, i);
-        std::swap(vec[i], vec[j]);
+
+vector<pair<int,int>> generate_graph(mt19937& rng)
+{
+    vector<pair<int,int>> ret;
+    uniform_int_distribution<int> m_dist(3500, 4500);
+	uniform_int_distribution<int> node_dist(0, 999);
+    int m = m_dist(rng);
+
+    set<pair<int,int>> seen;
+    for (int i = 0; i < m; i++)
+    {
+        while (true)
+        {
+            int a = node_dist(rng);
+            int b = node_dist(rng);
+            if (a==b) continue;
+            if (seen.find(pair<int,int>(a,b))!=seen.end()) continue;
+            seen.insert(pair<int,int>(a,b));
+            seen.insert(pair<int,int>(b,a));
+            ret.emplace_back(a,b);
+            break;
+        }
     }
+    return ret;
+}
+
+vector<pair<int,int>> shuffle_graph(vector<pair<int,int>> graph, mt19937& rng)
+{
+    vector<int> permute(1000);
+    for (int i = 0; i < 1000; i++) permute[i] = i;
+    shuffle(permute.begin(), permute.end(), rng);
+    shuffle(graph.begin(), graph.end(), rng);
+    uniform_int_distribution<int> bool_dist(0, 1);
+    for (int i = 0; i < graph.size(); i++)
+    {
+        graph[i].first = permute[graph[i].first];
+        graph[i].second = permute[graph[i].second];
+        if (bool_dist(rng)) swap(graph[i].first, graph[i].second); 
+    }
+    return graph;
 }
 
 int main() {
 	ios_base::sync_with_stdio(false);
-	int n, k;
-	cin >> n >> k;
-	int test_type, seed;
-	cin >> test_type >> seed;
-	rng_state = seed;
+
+	int seed;
+	cin >> seed;
+	mt19937 rng(seed);
 
 	int pipefds[2];
 	ignore = pipe(pipefds);
 
-	auto get_lr = [test_type](int elen)
-	{
-		// Random
-		if (test_type == 0)
-		{
-			int l = rand_interval(0, elen-1);
-			int r = rand_interval(l, elen-1);
-			return make_pair(l,r);
-		}
-		if (test_type == 1)
-		{
-			int l = rand_interval(0, elen-1);
-			return make_pair(l,l);
-		}
-		if (test_type == 2)
-		{
-			int l,r;
-			while ((l=rand_interval(0,elen-3))%2) {}
-			while ((r=rand_interval(l,elen-1))%2) {}
-			return make_pair(l,r);
-		}
-		if (test_type == 3)
-		{
-			int l,r;
-			while ((l=rand_interval(0,elen-1))%2) {}
-			r = rand_interval(l, elen-1);
-			return make_pair(l,r);
-		}
-	};
+	vector<pair<int,int>> edges = generate_graph(rng);
 
 	pid_t pid = fork();
 	if (pid == 0) {
 		close(pipefds[0]);
 
-		// {S, E}
-		vector<pair<string,string>> testcases;
+		vector<pair<int,int>> res = run(edges);
 
-		for (int i = 0; i < num_testcases; i++)
+		if (res.size() != 30)
 		{
-			string s;
-			for (int j = 0; j < n; j++) s += (rand_interval(0, 1) ? "1" : "0");
-			string encoded = encode(s);
+			cout << _SECRET_FAIL << "Did not give 30 edges in first round" << endl;
+			close(pipefds[1]);
+			exit(USER_FAIL);
+		}
 
-			if (encoded.size() == 0)
+		for (int i = 0; i < 30; i++)
+		{
+			int a,b;
+			tie(a,b) = res[i];
+			if (a<0||b<0||a>=1000||b>=1000 || a==b)
 			{
-				cout << _SECRET_FAIL << "Encoder gave empty E" << endl;
+				cout << _SECRET_FAIL << "Gave invalid edge in first round" << endl;
 				close(pipefds[1]);
 				exit(USER_FAIL);
 			}
-
-			if (encoded.size() > (size_t)k) {
-				cout << _SECRET_FAIL << "Encoder gave too long E" << endl;
-				close(pipefds[1]);
-				exit(USER_FAIL);
-			}
-
-			for (char c : encoded) {
-				if (c != '0' && c != '1') {
-					cout << _SECRET_FAIL << "Encoder gave E containing character which is not 0 or 1" << endl;
-					close(pipefds[1]);
-					exit(USER_FAIL);
-				}
-			}
-
-			int l,r;
-			tie(l, r) = get_lr(encoded.size());
-			// flip the interval
-			for (int i = l; i <= r; i++)
-			{
-				if (encoded[i]=='1') encoded[i]='0';
-				else encoded[i]='1';
-			}
-			testcases.emplace_back(s, encoded);
 		}
 
 		char nullbyte[1];
 		nullbyte[0]=0;
 		char dollar[1];
 		dollar[0]='$';
-		for (auto [s, e] : testcases)
+		for (auto e : res)
 		{
-			ignore = write(pipefds[1], s.c_str(), s.size());
+			string a = to_string(e.first);
+			string b = to_string(e.second);
+			ignore = write(pipefds[1], a.c_str(), a.size());
 			ignore = write(pipefds[1], dollar, 1);
-			ignore = write(pipefds[1], e.c_str(), e.size());
+			ignore = write(pipefds[1], b.c_str(), b.size());
 			ignore = write(pipefds[1], dollar, 1);
 		}
 		
@@ -155,9 +129,6 @@ int main() {
 		if (ex == USER_FAIL) { exit(0); }
 		if (ex != EXIT_SUCCESS) { exit(ex); }
 		ignore = read(pipefds[0], buf, sizeof(buf));
-
-		// {S,E}
-		vector<pair<string,string>> testcases;
 		
 		string curr_string = "";
 		bool s_curr = 1;
@@ -168,10 +139,10 @@ int main() {
 			{
 				if (s_curr)
 				{
-					testcases.push_back(make_pair("",""));
-					testcases.back().first = curr_string;
+					edges.emplace_back(-1,-1);
+					edges.back().first = stoi(curr_string);
 				}
-				else testcases.back().second = curr_string;
+				else edges.back().second = stoi(curr_string);
 				s_curr ^= 1;
 				curr_string = "";
 			}
@@ -180,25 +151,15 @@ int main() {
 				curr_string += buf[i];
 			}
 		}
+		shuffle_graph(edges, rng);
 
-		permute_vector(testcases);
-
-		unsigned long long h = 0;
-		for (auto [S,E] : testcases)
+		vector<pair<int,int>> res = run(edges);
+		if (res.size() > 0)
 		{
-			for (auto c : S) h = (h+c-'0')*31;
-			for (auto c : E) h = (h+c-'0')*31;
-
-			string decoded = decode(E);
-
-			if (decoded!=S)
-			{
-				cout << _SECRET_FAIL << "Decoder did not find S" << endl;
-				close(pipefds[1]);
-				exit(0);
-			}
+			cout << _SECRET_FAIL << "Did not recognize it had already seen graph in second round" << endl;
+			close(pipefds[1]);
+			exit(0);
 		}
-		cerr << "Hash of run: " << h << endl;
 
 		cout << _SECRET_KEY << seed << endl;
 		exit(EXIT_SUCCESS);

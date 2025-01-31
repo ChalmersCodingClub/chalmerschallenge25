@@ -23,6 +23,6 @@ def run(edges_in):
         v += 1
         if v == u: continue
         if (v,u) in edges or (u,v) in edges: continue
-        ret.append((u,v))
+        ret.append([u,v])
         p += 1
     return ret
