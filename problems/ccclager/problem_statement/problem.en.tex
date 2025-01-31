@@ -1,0 +1,53 @@
+\problemname{CCC Camp}
+\noindent
+
+It's time for a new camp in Härryda with Chalmers Coding Club! As per tradition, everyone has been in
+the sauna until 3 AM and has now gone to bed. The entire camp is sleeping together in a large, elongated
+room (Storstugan), but unfortunately, there is also a window along the long side facing directly towards
+the morning sun, which will soon rise. There are $N$ participants, where the $i$:th participant sleeps
+$d_i$ meters from the door (on the short side) of the room.
+
+\illustration{0.5}{sample_bild.png}{Illustration of sample 1, with curtains marked in red}
+
+Rasmus has woken up early and notices that there are a number of curtains covering parts of the window
+at $M$ different intervals. Each curtain blocks the sunlight for everyone sleeping between $L$ and $R$ (inclusive)
+meters from the door, allowing them to keep sleeping. Note that multiple curtains may cover the same part of the window.
+Unfortunately, those who are not covered by a section of the curtain will be hit by the strong morning sun and wake up immediately.
+
+To help all the poor participants who will wake up early, Rasmus plans to make coffee. He assumes that each participant will
+need one cup of coffee to wake up properly, but he also knows that Joshua and Gustav stayed up even later to prepare
+for the next day's lectures, so they will need two cups of coffee.
+
+How many cups of coffee does Rasmus need to make?
+
+\section*{Input}
+The first line contains two integers $N$ and $M$ ($1 \leq N \leq 2 \cdot 10^5$, $0 \leq M \leq 2 \cdot 10^5$),
+the number of participants and the number of curtain segments.
+
+This is followed by $N$ lines, where the $i$:th line contains the name of the $i$:th participant followed by $d_i$ ($0 \leq d_i \leq 10^9$),
+the distance from the door at which they sleep. Each name consists of 3 to 10 letters. It starts with an uppercase letter (\texttt{A}-\texttt{Z}),
+followed by lowercase letters (\texttt{a}-\texttt{z}). It is guaranteed that each participant's name is unique.
+
+The next $M$ lines each contain two integers, $L$ and $R$ ($0 \le L_j \le R_j \le 10^9$), indicating that a curtain covers the interval $[L, R]$.
+Note that some curtains may overlap.
+
+\section*{Output}
+Print an integer: the number of cups of coffee Rasmus needs to prepare to satisfy the newly awakened participants.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N, M \le 100$, $d_i, L_j, R_j \le 1000$ \\ \hline
+  $2$    & $20$       & $M \le 100$, $d_i, L_j, R_j \le 10^5$ \\ \hline
+  $3$    & $20$       & $d_i, L_j, R_j \le 10^5$ \\ \hline
+  $4$    & $50$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+Unfortunately, Joshua, Jens, and Gustav will wake up. Joshua and Gustav need two cups of coffee each, while Jens only needs one.
+Therefore, Rasmus needs to brew a total of 5 cups of coffee.
