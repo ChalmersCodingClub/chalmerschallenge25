@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from decimal import *
-getcontext().prec = 200
+getcontext().prec = 35
 
 n = int(input())
 flowers = []
