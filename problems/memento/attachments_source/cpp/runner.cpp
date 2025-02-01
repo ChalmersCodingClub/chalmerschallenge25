@@ -34,7 +34,7 @@ vector<pair<int,int>> generate_graph(mt19937& rng)
 {
     vector<pair<int,int>> ret;
     uniform_int_distribution<int> m_dist(3500, 4500);
-	uniform_int_distribution<int> node_dist(0, n);
+	uniform_int_distribution<int> node_dist(0, n-1);
     int m = m_dist(rng);
 
     set<pair<int,int>> seen;
@@ -114,7 +114,7 @@ int main(int argc, char* argv[]) {
     {
         graph.push_back(e);
     }
-    shuffle_graph(graph, rng);
+    graph = shuffle_graph(graph, rng);
 
     graph = run(graph);
     if (graph.size())

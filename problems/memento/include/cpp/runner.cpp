@@ -151,7 +151,7 @@ int main() {
 				curr_string += buf[i];
 			}
 		}
-		shuffle_graph(edges, rng);
+		edges = shuffle_graph(edges, rng);
 
 		vector<pair<int,int>> res = run(edges);
 		if (res.size() > 0)
