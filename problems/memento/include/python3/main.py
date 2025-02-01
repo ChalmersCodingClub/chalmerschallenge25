@@ -92,7 +92,7 @@ def main():
             edges[i][0] = vertex_relabel[edges[i][0]]
             edges[i][1] = vertex_relabel[edges[i][1]]
             if random.randint(0,1):
-                edges[i]=(edges[i][1],edges[i][0])
+                edges[i]=[edges[i][1],edges[i][0]]
 
         res = run(edges)
         if type(res) != list:

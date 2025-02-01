@@ -98,7 +98,7 @@ def main():
         graph[i][0] = vertex_relabel[graph[i][0]]
         graph[i][1] = vertex_relabel[graph[i][1]]
         if random.randint(0,1):
-            graph[i]=(graph[i][1],graph[i][0])
+            graph[i]=[graph[i][1],graph[i][0]]
 
     res = run(graph)
     if type(extra_edges) != list:
