@@ -93,6 +93,13 @@ int main() {
 				close(pipefds[1]);
 				exit(USER_FAIL);
 			}
+			if (find(edges.begin(), edges.end(), pair<int,int>(a,b))!=edges.end() || find(edges.begin(), edges.end(), pair<int,int>(b,a))!=edges.end())
+			{
+				cout << _SECRET_FAIL << "Gave invalid edge in first round" << endl;
+				close(pipefds[1]);
+				exit(USER_FAIL);
+			}
+			edges.emplace_back(a,b);
 		}
 
 		char nullbyte[1];

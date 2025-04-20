@@ -67,6 +67,11 @@ def main():
             if e[0]==e[1]:
                 print(f"{_SECRET_FAIL}Gave invalid edge in first round")
                 sys.exit(_USER_FAIL)
+            a,b = e[0],e[1]
+            if [a,b] in edges or [b,a] in edges:
+                print(f"[X] Error: in first phase, gave edge that already exists, {e[0]=} {e[1]=}")
+                sys.exit(1)
+            edges.append([a,b])
 
         for e in res:
             w.write(f"{e[0]}${e[1]}@")

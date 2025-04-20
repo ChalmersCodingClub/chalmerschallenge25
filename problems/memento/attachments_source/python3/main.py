@@ -22,6 +22,7 @@
 
 import sys
 import random
+import copy
 
 from memento import run
 
@@ -56,7 +57,7 @@ def main():
     random.seed(seed)
 
     graph = generate_graph()
-    extra_edges = run(graph)
+    extra_edges = run(copy.deepcopy(graph))
     
     # Sanitize extra edges
     if type(extra_edges) != list:
@@ -77,7 +78,7 @@ def main():
             print(f"[X] Error: in first phase, gave an edge that is not a list, {type(e)=}")
             sys.exit(1)
         if len(e)!=2:
-            print(f"[X] Error: in first phase, gave edge does not have length 2, {len(e)=}")
+            print(f"[X] Error: in first phase, given edge does not have length 2, {len(e)=}")
             sys.exit(1)
         if type(e[0]) != int or type(e[1]) != int:
             print(f"[X] Error: in first phase, edge indices are not int, {type(e[0])=} {type(e[1])=}")
@@ -88,9 +89,13 @@ def main():
         if e[0]==e[1]:
             print(f"[X] Error: in first phase, edge indices are equal, {type(e[0])=} {type(e[1])=}")
             sys.exit(1)
+        a,b = e[0],e[1]
+        if (a,b) in graph or (b,a) in graph:
+            print(f"[X] Error: in first phase, gave edge that already exists, {e[0]=} {e[1]=}")
+            sys.exit(1)
+        graph.append([a,b])
 
     # Shuffle graph
-    graph.extend(extra_edges)
     vertex_relabel = [i for i in range(n)]
     random.shuffle(vertex_relabel)
     random.shuffle(graph)

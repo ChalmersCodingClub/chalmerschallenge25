@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def run(edges):
     out_from = {i:0 for i in range(1000)}
     s_edges = set()

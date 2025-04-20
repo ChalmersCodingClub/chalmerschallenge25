@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def run(edges_in):
     M = len(edges_in)
     edges = set()

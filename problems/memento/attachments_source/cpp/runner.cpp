@@ -108,6 +108,12 @@ int main(int argc, char* argv[]) {
             cerr << "[X] Error: in first phase, edge indices are equal, " << a << " " << b << endl;
             return 1;
         }
+        if (find(graph.begin(), graph.end(), pair<int,int>(a,b))!=graph.end() || find(graph.begin(), graph.end(), pair<int,int>(b,a))!=graph.end())
+        {
+            cerr << "[X] Error: in first phase, gave edge that already exists: " << a << " " << b << endl;
+            return 1;
+        }
+        graph.emplace_back(a,b);
     }
 
     for (auto e : extra_edges)
