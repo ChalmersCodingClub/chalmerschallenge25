@@ -70,7 +70,7 @@ def main():
             a,b = e[0],e[1]
             if [a,b] in edges or [b,a] in edges:
                 print(f"[X] Error: in first phase, gave edge that already exists, {e[0]=} {e[1]=}")
-                sys.exit(1)
+                sys.exit(_USER_FAIL)
             edges.append([a,b])
 
         for e in res:
